@@ -1,0 +1,49 @@
+<h1 class="text-center app-title">BINGO SIMULATOR</h1>
+<div class="row-fluid">
+  <div class="span1"></div>
+  <div class="span6">
+    <div class="row-fluid text-center">
+      <div class="span1"></div>
+      <div class="span2 bingo-square-header" ng-repeat="letter in columnLetters">{{ letter }}</div>
+      <div class="span1"></div>
+    </div>
+    <div class="row-fluid">&nbsp;</div>
+    <div class="row-fluid text-center" ng-repeat="row in rows">
+      <div class="span1"></div>
+      <div class="span2 bingo-square bingo-square-{{tiles[row][col]}}" ng-repeat="col in cols">{{ card[row][col] }}
+      </div>
+      <div class="span1"></div>
+    </div>
+    <div class="row-fluid">&nbsp;</div>
+    <div class="row-fluid">
+      <div class="span8">
+        <div class="row-fluid">
+          Loop Sim: <input type="checkbox" ng-model="loop">
+        </div>
+        <div class="row-fluid">
+          <input type="radio" ng-model="speed" value="slow"> Slow
+          <input type="radio" ng-model="speed" value="medium"> Medium
+          <input type="radio" ng-model="speed" value="fast"> Fast
+        </div>
+      </div>
+      <div class="span4">
+        <button class="btn btn-primary" ng-disabled="runInProgress" ng-click="runSimulation()">Run simulator</button>
+      </div>
+    </div>
+    <div class="row-fluid">&nbsp;</div>
+    <div class="row-fluid">
+      <p>NOTE: This is a responsive app. Size window/pane to size BINGO display. Uncheck the loop checkbox to stop a running simulation which is set to loop.</p>
+      <p>Changes to loop and speed take affect before a simulation run completes or upon the next run.</p>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="row-fluid text-center bingo-card-balls-title">Balls</div>
+    <div class="row-fluid">&nbsp;</div>
+    <div class="thumbnails bingo-card-balls-called">
+      <ul class="thumbnails">
+        <li class="bingo-ball" ng-repeat="ball in ballsCalled">{{ ball }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="span1"></div>
+</div>

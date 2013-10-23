@@ -1,0 +1,57 @@
+body {
+  background: #fafafa;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.app-title {
+  padding: 20px;
+}
+
+.bingo-square-header {
+  border-radius: 10%;
+  border: solid lightgrey;
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.bingo-square {
+  border-radius: 10%;
+  border: solid lightgrey;
+  text-align: center;
+  font-size: 1em;
+  padding: .4em;
+}
+
+.bingo-card-balls-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  padding: 0;
+}
+
+.bingo-card-balls-called {
+  font-size: 1em;
+}
+
+.bingo-ball {
+  background-color: beige;
+  border: solid grey 1px;
+  border-radius: 50%;
+  color: black;
+  width: 2em;
+  padding: .3em;
+  font-size: .8em;
+  text-align: center;
+  box-shadow: 2px 2px 1px lightgrey;
+}
+
+.bingo-square-selected {
+  background-color: skyblue;
+}
+
+.bingo-square-bingo {
+  background-color: #98ffa1;
+  font-weight: bold;
+}
