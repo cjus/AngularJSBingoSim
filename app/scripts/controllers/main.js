@@ -1,14 +1,14 @@
-'use strict';
-
 /**
  * @name MainCtrl
  * @description Main app controller. Drives BINGO simulation and app view.
  *  Utilizes BingoUtilsService.  This controller makes heavy use of the
- *  AngularJS scope object to keep the state of a simulation and the view in sync.
+ *  AngularJS scope object to keep the state of a simulation and the view
+ *  in sync.
  * @author Carlos Justiniano
  */
 angular.module('bingoftuiApp')
-  .controller('MainCtrl', function($scope, BingoUtilsService) {
+  .controller('MainCtrl', function ($scope, BingoUtilsService) {
+    'use strict';
     var DELAY_BETWEEN_SIMULATION_RUNS = 1000;
 
     $scope.loop = true;
@@ -29,9 +29,9 @@ angular.module('bingoftuiApp')
      */
     function getSpeedValue(speedText) {
       var speed = 0;
-      if (speedText == 'slow') {
+      if (speedText === 'slow') {
         speed = 800;
-      } else if (speedText == 'medium') {
+      } else if (speedText === 'medium') {
         speed = 250;
       } else {
         speed = 16;
@@ -43,16 +43,13 @@ angular.module('bingoftuiApp')
      * @name runSimulation
      * @description Runs one or more simulations.
      */
-    $scope.runSimulation = function() {
-      var timerID = null;
-      var countDown = BingoUtilsService.MAX_BALLS;
-
-      // begin by resetting the simulation
-      resetSim();
+    $scope.runSimulation = function () {
+      var timerID = null, countDown = BingoUtilsService.MAX_BALLS;
 
       /**
        * @name resetSim
-       * @description Resets the simulator. Simulator is driven by a setInterval timer.
+       * @description Resets the simulator. Simulator is driven by
+       * a setInterval timer.
        */
       function resetSim() {
         $scope.card = BingoUtilsService.blankCard();
@@ -65,7 +62,8 @@ angular.module('bingoftuiApp')
 
       /**
        * @name executePass
-       * @description Executes a simulator pass. In BINGO this is a single call of a ball.
+       * @description Executes a simulator pass. In BINGO this is a
+       *  single call of a ball.
        *  executePass is essentially a single pass of a game loop.
        */
       function executePass() {
@@ -75,7 +73,7 @@ angular.module('bingoftuiApp')
           clearInterval(timerID);
           $scope.runInProgress = false;
           if ($scope.loop) {
-            setTimeout(function() {
+            setTimeout(function () {
               resetSim();
             }, DELAY_BETWEEN_SIMULATION_RUNS);
           }
@@ -83,11 +81,11 @@ angular.module('bingoftuiApp')
           var ball = $scope.buildBallArray[countDown];
           $scope.ballsCalled.push(ball);
           BingoUtilsService.checkPlay(ball, $scope.card, $scope.tiles);
-          if (BingoUtilsService.checkForBingo($scope.tiles) == true) {
+          if (BingoUtilsService.checkForBingo($scope.tiles) === true) {
             clearInterval(timerID);
             $scope.runInProgress = false;
             if ($scope.loop) {
-              setTimeout(function() {
+              setTimeout(function () {
                 resetSim();
               }, DELAY_BETWEEN_SIMULATION_RUNS);
             }
@@ -96,6 +94,8 @@ angular.module('bingoftuiApp')
         $scope.$apply();
       }
 
+      // begin by resetting the simulation
+      resetSim();
     };
   });
 

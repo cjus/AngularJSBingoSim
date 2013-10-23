@@ -20,7 +20,7 @@ describe('Controller: MainCtrl', function () {
     expect(scope.card).toBeDefined();
   });
 
-  it('should return a ball array of length 75', function() {
+  it('should return a ball array of length 75', function () {
     var ballArray = scope.buildBallArray;
     //console.log(ballArray);
     expect(ballArray.length).toBe(75);

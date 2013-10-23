@@ -1,7 +1,11 @@
-'use strict';
-
+/**
+ * @name ArrayUtilsService
+ * @description Service which encapsulates Array related functionality.
+ * @author Carlos Justiniano
+ */
 angular.module('bingoftuiApp')
-  .service('ArrayUtilsService', function() {
+  .service('ArrayUtilsService', function () {
+    'use strict';
     /**
      * @name isArray
      * @description is number fund in array
@@ -9,10 +13,10 @@ angular.module('bingoftuiApp')
      * @param {Number} num
      * @returns {Number} result, position where number if found else -1
      */
-    this.inArray = function(array, num) {
-      var position = -1;
-      for (var i = 0; i < array.length; i++) {
-        if (array[i] == num) {
+    this.inArray = function (array, num) {
+      var i, position = -1;
+      for (i = 0; i < array.length; i++) {
+        if (array[i] === num) {
           position = i;
           break;
         }
@@ -27,7 +31,7 @@ angular.module('bingoftuiApp')
      * @see: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
      * @returns {Array} shuffled array
      */
-    this.shuffle = function(array) {
+    this.shuffle = function (array) {
       var counter = array.length, temp, index;
       // While there are elements in the array
       while (counter--) {
@@ -47,8 +51,8 @@ angular.module('bingoftuiApp')
      * @param array
      * @returns {Array} cloned
      */
-    this.clone = function(array) {
+    this.clone = function (array) {
       return array.slice(0);
-    }
+    };
 
   });
